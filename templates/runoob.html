@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>菜鸟教程</title>
+</head>
+<body>
+
+{% for i in name %}
+{#    {{ forloop.counter}}#}
+{#    {{ forloop.counter0}}#}
+    {{ forloop.revcounter }}
+{#    {{ forloop.revcounter0}}#}
+{#    {{ forloop.first }} #}
+{#    {{ forloop.last }} #}
+{% empty %}
+<p>空空如也～</p>
+{% endfor %}
+
+<!-- if else-->
+{% if num > 100 and num < 100000 %}
+<p>good</p>
+{%elif num > 100000 and num <= 10000000 %}
+<p>not bad</p>
+{% else %}
+<p>bad</p>
+{% endif %}
+
+<!--for-->
+<ul>
+{% for n in name %}
+    <li>{{n}}</li>
+{% endfor %}
+</ul>
+
+<!--反向for-->
+<ul>
+{% for n in name reversed %}
+    <li>{{n}}</li>
+{% endfor %}
+</ul>
+
+<!--遍历字典-->
+{% for i,j in name_dict.items %}
+{{i}}---{{j}}
+{% endfor %}
+
+<!--dict-->
+<p>{{name_dict}}</p>
+<p>{{name_dict.name}}</p>
+
+<!--小写-->
+<p>{{name|lower}}</p>
+
+<!--首字母大写-->
+<p>{{name|first|upper}}</p>
+
+<!-- 默认值：0，0.0, False, 0j, "", [], (), set(), {}, None-->
+<p>{{bl|default:"菜鸟教程777"}}</p>
+
+<!---过滤前n个词->
+<p>{{name|truncatewords:"5"}}</p>
+
+<!--长度-->
+<p>{{name|length}}</p>
+
+<!--以更容易读的方式现实文件大小'13KB', '4.1MB', '102bytes'等-->
+<p>{{num|filesizeformat}}</p>
+
+<!--根据给定格式给一个日期变量格式化'Y-m-d H:i:s'-->
+<p>{{time|date:"Y-m-d H:i:s"}}</p>
+
+<!--截断多于指定数量的字符-->
+<p>{{name.1|truncatechars:2}}</p>
+
+<!--将字符串标记为安全，不需要转义-->
+<p>{{views_str|safe}}</p>
